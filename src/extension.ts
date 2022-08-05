@@ -51,7 +51,7 @@ export class CodelensProvider implements vscode.CodeLensProvider {
 		this.codeLenses = [];
 
 		const dir = path.dirname(document.uri.path)
-		const cmd = `go build -o __dbg_goescape -gcflags "-m" . 2>&1 | grep ` + path.parse(document.fileName).base + ` | grep heap; rm __dbg_goescape`
+		const cmd = `go build -o /tmp/__dbg_goescape -gcflags "-m" . 2>&1 | grep ` + path.parse(document.fileName).base + ` | grep heap; rm -f /tmp/__dbg_goescape`
 		const result = cp.execSync(cmd, { cwd: dir }).toString()
 
 		// bad output from go build

@@ -18,5 +18,11 @@ mkdir -p out
 docker run -it --rm -v `pwd`/out:/app/out goescape/builder
 ```
 
-# Run
-Right click on the vscode extension after building and select 'Install Extension VSIX'
+# Install
+Open Visual Studio Code in folder with the extension, then right click on the extension and select 'Install Extension VSIX'
+
+# Demo
+![Demo](https://github.com/nevisdale/vscode-goescape/blob/master/docs/demo.gif "Demo")
+
+# License
+[MIT](https://github.com/nevisdale/vscode-goescape/blob/master/LICENSE)
