@@ -1,0 +1,71 @@
+{
+	"name": "goescape",
+	"displayName": "goescape",
+	"description": "support escape analysis for go packages",
+	"version": "0.0.1",
+	"publisher": "nevisdale",
+	"author": {
+		"name": "Sergei Kalinin"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/nevisdale/vscode-goescape"
+	},
+	"engines": {
+		"vscode": "^1.67.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"activationEvents": [
+		"onCommand:goescape.enable",
+		"onCommand:goescape.disable"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"title": "Enable",
+				"command": "goescape.enable",
+				"category": "Go Escape"
+			},
+			{
+				"title": "Disable",
+				"command": "goescape.disable",
+				"category": "Go Escape"
+			}
+		],
+		"configuration": {
+			"properties": {
+				"goescape.enable": {
+					"type": "boolean",
+					"default": true
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.1.1",
+		"@types/node": "16.x",
+		"@types/vscode": "^1.67.0",
+		"@typescript-eslint/eslint-plugin": "^5.27.0",
+		"@typescript-eslint/parser": "^5.27.0",
+		"@vscode/test-electron": "^2.1.3",
+		"eslint": "^8.16.0",
+		"glob": "^8.0.3",
+		"mocha": "^10.0.0",
+		"typescript": "^4.7.2"
+	},
+	"dependencies": {
+		"vsce": "^2.10.0"
+	}
+}
